@@ -9,3 +9,29 @@
     align-items: center;
     margin-left: 4%;
 }
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 180px;
+    height: 300px;
+    margin: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.card h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+.card p {
+    margin: 10px 0;
+}
+.card img {
+    width: 160px;
+    height: 160px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    filter: brightness(110%);
+}
