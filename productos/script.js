@@ -1,8 +1,8 @@
 "use strict";
 
-let productos = ["Azucar Ledesma", "Cafe Dolca", "CocaCola","Fernet Branca", "Fideos Matarazzo", "Leche laSerenisima", "Mermelada LaCampagnola", "Queso untable", "Yerba playadito", "Yogur laSerenisima"];
+let productos = ["Azucar Ledesma", "Cafe Dolca", "CocaCola", "Fernet Branca", "Fideos Matarazzo", "Leche laSerenisima", "Mermelada LaCampagnola", "Queso untable", "Yerba playadito", "Yogur laSerenisima"];
 let precioProductos = [2000, 5000, 3500, 10000, 1500, 1300, 1300, 3000, 3000, 1000];
-let cantidadProductos = [80, 23, 55, 16, 0, 62, 43, 38, 19, 4];
+let cantidadProductos = [80, 23, 55, 16, 14, 62, 43, 38, 19, 4];
 let imagenProducto = ["../imagenes/azucar.jpeg", "../imagenes/cafe.jpeg", "../imagenes/cocacola.jpeg", "../imagenes/fernet.jpeg", "../imagenes/fideos.jpeg", "../imagenes/leche.jpeg", "../imagenes/mermelada.jpeg", "../imagenes/quesoUntable.jpeg", "../imagenes/yerba.jpeg", "../imagenes/yogur.jpeg"]
 
 let contenedor = document.getElementById("contenedor-producto");
@@ -24,10 +24,11 @@ for (let i = 0; i < productos.length; i++) {
     let stock = document.createElement("p")
     stock.textContent = `El stock es de ${cantidadProductos[i]} unidades`
 
-    let botonComprar = document.createElement("a")
+    let botonComprar = document.createElement("button")
     botonComprar.textContent = "Realizar compra"
-    botonComprar.href = "../compra/index.html"
-
+    botonComprar.className = "hero__cta"
+    botonComprar.id = `compra${[i]}`
+    
 
     card.appendChild(tituloProducto);
     card.appendChild(imagen)
@@ -36,4 +37,84 @@ for (let i = 0; i < productos.length; i++) {
     card.appendChild(botonComprar)
 
     contenedor.appendChild(card)
+
+    let openModal = document.querySelector(`#compra${[i]}`)
+    let modal = document.querySelector('.modal');
+    let closeModal = document.querySelector('.modal__close');
+    let modalImg = document.getElementsByClassName("modal__img")
+    let modalInput = document.querySelector("#input1")
+    let modalNombre = document.getElementsByClassName("modal__title")
+    let modalComprar = document.getElementsByClassName("modal__comprar")
+    
+    openModal.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(modalImg[0].src);
+
+        modal.classList.add('modal--show');
+
+        modalImg[0].src = imagenProducto[i]
+        modalImg[0].alt = productos[i]
+
+        modalNombre[0].textContent = productos[i]
+      
+        modalComprar[0].addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log("comprado")
+            let cantInput = Number(modalInput.value)
+
+            if (cantInput < 0 || cantInput > cantidadProductos[i]) {
+                console.log("tiene que ingresar un numero entre 0 y la cant")
+            }else{
+                console.log("compra realizada con exito")
+            }
+
+            
+        })
+
+        
+    });
+    
+    closeModal.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.remove('modal--show');
+    });
 }
+    
+        // let btn1 = document.getElementById(`compra1`)
+    // btn1.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    
+    // console.log("LOGRADO");
+    // alert(`${productos[i]}`)
+
+    // let modal1 = document.createElement("section")
+    // modal1.className = "modal"
+
+    // let divModal = document.createElement("div")
+    // divModal.className = "modal__container"
+
+    // let tituloProductoModal = document.createElement("h3")
+    // tituloProductoModal.textContent = productos[i]
+    // tituloProductoModal.className = "modal__title"
+
+    // let imagenModal = document.createElement("img")
+    // imagenModal.src = imagenProducto[i]
+    // imagenModal.alt = productos[i]
+    // imagenModal.className = "modal__img"
+
+    // let precioProductoModal = document.createElement("p")
+    // precioProductoModal.textContent = precioProducto[i]
+    // precioProductoModal.className = "modal__paragraph"
+
+    // let stockModal = document.createElement("p")
+    // stockModal.textContent = `El stock es de ${cantidadProductos[i]} unidades`
+    // stockModal.className = "modal__paragraph"
+
+    // modal1.appendChild(tituloProductoModal)
+    // modal1.appendChild(imagenModal)
+    // modal1.appendChild(precioProductoModal)
+    // modal1.appendChild(stockModal)
+
+    // contenedor.appendChild(modal)
+
+//})
