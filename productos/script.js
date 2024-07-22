@@ -19,7 +19,7 @@ for (let i = 0; i < productos.length; i++) {
     imagen.alt = productos[i]
 
     let precioProducto = document.createElement("p")
-    precioProducto.textContent = precioProducto[i]
+    precioProducto.textContent = `$${precioProductos[i]}`
 
     let stock = document.createElement("p")
     stock.textContent = `El stock es de ${cantidadProductos[i]} unidades`
@@ -28,7 +28,7 @@ for (let i = 0; i < productos.length; i++) {
     botonComprar.textContent = "Realizar compra"
     botonComprar.className = "hero__cta"
     botonComprar.id = `compra${[i]}`
-    
+
 
     card.appendChild(tituloProducto);
     card.appendChild(imagen)
@@ -45,7 +45,8 @@ for (let i = 0; i < productos.length; i++) {
     let modalInput = document.querySelector("#input1")
     let modalNombre = document.getElementsByClassName("modal__title")
     let modalComprar = document.getElementsByClassName("modal__comprar")
-    
+    let modalValidate = document.getElementsByClassName("modal__validate")
+
     openModal.addEventListener('click', (e) => {
         e.preventDefault();
         console.log(modalImg[0].src);
@@ -56,65 +57,37 @@ for (let i = 0; i < productos.length; i++) {
         modalImg[0].alt = productos[i]
 
         modalNombre[0].textContent = productos[i]
-      
+
         modalComprar[0].addEventListener("click", (e) => {
             e.preventDefault();
             console.log("comprado")
             let cantInput = Number(modalInput.value)
 
-            if (cantInput < 0 || cantInput > cantidadProductos[i]) {
-                console.log("tiene que ingresar un numero entre 0 y la cant")
-            }else{
+            if (cantInput > 0 && cantInput <= cantidadProductos[i]) {
                 console.log("compra realizada con exito")
+                let precio = cantInput*precioProductos[i]
+                console.log(precio, cantInput, precioProductos[i])
+                modalValidate[0].textContent = `Su compra ha sido realizada por la cantidad de ${"$",precio}, muchas gracias!`
+                setTimeout(() => {
+                    modal.classList.remove('modal--show');
+                }, 3000);
+                modalInput.value = 0
+
+            } else {
+                console.log("tiene que ingresar un numero entre 0 y la cant")
+                console.log(modalValidate);
+                modalValidate[0].textContent = `Por favor ingrese un número valido, que se encuentre entre 0 y ${cantidadProductos[i]}`
             }
 
-            
+
         })
 
-        
+
     });
-    
+
     closeModal.addEventListener('click', (e) => {
         e.preventDefault();
         modal.classList.remove('modal--show');
     });
 }
-    
-        // let btn1 = document.getElementById(`compra1`)
-    // btn1.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    
-    // console.log("LOGRADO");
-    // alert(`${productos[i]}`)
 
-    // let modal1 = document.createElement("section")
-    // modal1.className = "modal"
-
-    // let divModal = document.createElement("div")
-    // divModal.className = "modal__container"
-
-    // let tituloProductoModal = document.createElement("h3")
-    // tituloProductoModal.textContent = productos[i]
-    // tituloProductoModal.className = "modal__title"
-
-    // let imagenModal = document.createElement("img")
-    // imagenModal.src = imagenProducto[i]
-    // imagenModal.alt = productos[i]
-    // imagenModal.className = "modal__img"
-
-    // let precioProductoModal = document.createElement("p")
-    // precioProductoModal.textContent = precioProducto[i]
-    // precioProductoModal.className = "modal__paragraph"
-
-    // let stockModal = document.createElement("p")
-    // stockModal.textContent = `El stock es de ${cantidadProductos[i]} unidades`
-    // stockModal.className = "modal__paragraph"
-
-    // modal1.appendChild(tituloProductoModal)
-    // modal1.appendChild(imagenModal)
-    // modal1.appendChild(precioProductoModal)
-    // modal1.appendChild(stockModal)
-
-    // contenedor.appendChild(modal)
-
-//})
