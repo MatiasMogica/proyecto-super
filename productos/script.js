@@ -65,13 +65,15 @@ for (let i = 0; i < productos.length; i++) {
 
             if (cantInput > 0 && cantInput <= cantidadProductos[i]) {
                 console.log("compra realizada con exito")
-                let precio = cantInput*precioProductos[i]
+                let precio = cantInput * precioProductos[i]
                 console.log(precio, cantInput, precioProductos[i])
-                modalValidate[0].textContent = `Su compra ha sido realizada por la cantidad de ${"$",precio}, muchas gracias!`
+                modalValidate[0].textContent = `Usted compró ${cantInput} unidades de ${productos[i]} por el precio de: $${precio}, muchas gracias!`
                 setTimeout(() => {
                     modal.classList.remove('modal--show');
-                }, 3000);
-                modalInput.value = 0
+                    modalInput.value = null
+                    modalValidate[0].textContent = ""
+                }, 4000);
+
 
             } else {
                 console.log("tiene que ingresar un numero entre 0 y la cant")
@@ -87,6 +89,8 @@ for (let i = 0; i < productos.length; i++) {
 
     closeModal.addEventListener('click', (e) => {
         e.preventDefault();
+        modalInput.value = null
+        modalValidate[0].textContent = ""
         modal.classList.remove('modal--show');
     });
 }
