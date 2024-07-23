@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <nav>
-           <ul>
-               <li>
-                <a href="../inicio/index.html">Inicio</a>
-               </li>
-               <li> 
-                <a href="../productos/productos.html">Productos</a>
-               </li>
-               <li>
-                <a href="../contacto/contacto.html">Contacto</a> 
-            </li>
-           </ul>
-        </nav> 
-      </header>
-      <script  type="text/javascript" src="./script.js"></script>
+            <ul>
+                <li>
+                    <a href="../inicio/index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="../productos/productos.html">Productos</a>
+                </li>
+                <li>
+                    <a href="../contacto/contacto.html">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Escribi tu nombre">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" placeholder="Escribi tu apellido">
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Escribi tu email">
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" placeholder="Escribi tu telefono">
+        <label for="comentario">Dejanos tu comentario:</label>
+        <textarea id="comentario" name="comentario_text_area"
+            placeholder="Compartí acá tu comentario (máx. 512 caracteres)" maxlength="512"></textarea>
+
+
+        <button id="enviar">Enviar</button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
 </body>
+
 </html>
