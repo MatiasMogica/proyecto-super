@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Contacto</title>
 </head>
 
 <body>
@@ -25,20 +26,33 @@
     </header>
 
     <form>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" placeholder="Escribi tu nombre">
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" placeholder="Escribi tu apellido">
-        <label for="email">Email:</label>
-        <input type="text" id="email" placeholder="Escribi tu email">
-        <label for="telefono">Teléfono:</label>
-        <input type="text" id="telefono" placeholder="Escribi tu telefono">
-        <label for="comentario">Dejanos tu comentario:</label>
-        <textarea id="comentario" name="comentario_text_area"
-            placeholder="Compartí acá tu comentario (máx. 512 caracteres)" maxlength="512"></textarea>
-
-
-        <button id="enviar">Enviar</button>
+        <div class="contenedor">
+            <div class="nombre">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Escribi tu nombre" class="nombre__input">
+            </div>
+            <div class="apellido">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" placeholder="Escribi tu apellido" class="apellido__input">
+            </div>
+            <div class="email">
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="Escribi tu email" class="email__input">
+            </div>
+            <div class="telefono">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" placeholder="Escribi tu telefono" class="telefono__input">
+            </div>
+            <div class="comentario">
+                <label for="comentario">Dejanos tu comentario:</label>
+                <textarea id="comentario" name="comentario_text_area"
+                    placeholder="Compartí acá tu comentario (máx. 512 caracteres)" maxlength="512"
+                    class="comentario__input"></textarea>
+            </div>
+            <div class="btn__contenedor">
+                <button id="enviar" class="btn__enviar">Enviar</button>
+            </div>
+        </div>
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <script type="text/javascript" src="./script.js"></script>

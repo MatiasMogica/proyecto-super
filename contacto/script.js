@@ -7,7 +7,7 @@ let btnEnviar = document.getElementById("enviar");
 let informacion = [];
 
 btnEnviar.addEventListener("click", (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     informacion[0] = nombre.value;
     informacion[1] = apellido.value;
     informacion[2] = email.value;
@@ -15,11 +15,14 @@ btnEnviar.addEventListener("click", (e) => {
     informacion[4] = comentario.value;
 
     console.log(`Su nombre es ${informacion[0]} y su apellido es ${informacion[1]}, su email es: ${informacion[2]}, su telefono es: ${informacion[3]},
-        su comentario es: ${informacion[4]}`);
+            su comentario es: ${informacion[4]}`);
 
-    let blob = new Blob([informacion], {type: "text/plain;charset=utf-8"}); 
+    console.log(btnEnviar.className)
 
-       saveAs(blob, "contact.txt");
+    let blob = new Blob([informacion], { type: "text/plain;charset=utf-8" });
 
-       console.log(blob)
+    saveAs(blob, "contact.txt");
+
+    console.log(blob)
 })
+
