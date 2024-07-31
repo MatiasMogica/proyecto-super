@@ -25,10 +25,8 @@ function sumaFinal(productosComprados) {
 function actualizarPrecioFinal() {
     if (productosComprados.length > 0) {
         precioFinal.textContent = `La sumatoria total de los productos comprados es de: $${sumaFinal(productosComprados)}`;
-        //precioFinal.style.display = "block";
     } else {
         precioFinal.textContent = "";
-        //precioFinal.style.display = "none";
     }
 }
 
@@ -63,107 +61,104 @@ for (let i = 0; i < productos.length; i++) {
     card.appendChild(imagen)
     card.appendChild(precioProducto);
     card.appendChild(stock);
-    card.appendChild(input);
+    //card.appendChild(input);
     card.appendChild(botonComprar);
 
     contenedor.appendChild(card)
 
-    let realizarCompra = document.getElementById(`compra${[i]}`)
+    let openModal = document.querySelector(`#compra${[i]}`)
+    let modal = document.querySelector('.modal');
+    let closeModal = document.querySelector('.modal__close');
+    let modalImg = document.getElementsByClassName("modal__img")
+    let modalInput = document.querySelector("#input1")
+    let modalNombre = document.getElementsByClassName("modal__title")
+    let modalComprar = document.getElementsByClassName("modal__comprar")
+    let modalValidate = document.getElementsByClassName("modal__validate")
 
-    realizarCompra.addEventListener("click", (e) => {
-        e.preventDefault()
+    openModal.addEventListener('click', (e) => {
+        e.preventDefault();
 
-        let cantInput = Number(input.value)
-    
-        if (cantInput > 0 && cantInput <= cantidadProductos[i]) {
-    
-            let precio = cantInput * precioProductos[i];
-    
-            productosComprados.push(precio)
-    
-            alert(`Usted compró ${cantInput} unidades de ${productos[i]} por el precio de: $${precio}, muchas gracias!`);
-    
-            let nuevoStock = cantidadProductos[i] - cantInput;
-            stock.textContent = `El stock es de ${nuevoStock} unidades`;
+        modal.classList.add('modal--show');
 
-            input.value = "";
-            console.log(productosComprados);
-            actualizarPrecioFinal();
-        }else{
-            alert(`Por favor ingrese un número valido, que se encuentre entre 0 y ${cantidadProductos[i]}`)
-            input.value = "";
-        }
+        modalImg[0].src = imagenProducto[i]
+        modalImg[0].alt = productos[i]
 
+        modalNombre[0].textContent = productos[i]
         
-    })
-    
-}
-
-
-
-
-
-    // let openModal = document.querySelector(`#compra${[i]}`)
-    // let modal = document.querySelector('.modal');
-    // let closeModal = document.querySelector('.modal__close');
-    // let modalImg = document.getElementsByClassName("modal__img")
-    // let modalInput = document.querySelector("#input1")
-    // let modalNombre = document.getElementsByClassName("modal__title")
-    // let modalComprar = document.getElementsByClassName("modal__comprar")
-    // let modalValidate = document.getElementsByClassName("modal__validate")
-
-    // openModal.addEventListener('click', (e) => {
-    //     e.preventDefault();
-
-    //     modal.classList.add('modal--show');
-
-    //     modalImg[0].src = imagenProducto[i]
-    //     modalImg[0].alt = productos[i]
-
-    //     modalNombre[0].textContent = productos[i]
-        
-    //     modalComprar[0].onclick = () => {
+        modalComprar[0].onclick = () => {
             
     
-    //         let cantInput = Number(modalInput.value)
+            let cantInput = Number(modalInput.value)
 
-    //         if (cantInput > 0 && cantInput <= cantidadProductos[i]) {
+            if (cantInput > 0 && cantInput <= cantidadProductos[i]) {
       
-    //             let precio = cantInput * precioProductos[i];
+                let precio = cantInput * precioProductos[i];
 
-    //             productosComprados.push(precio)
+                productosComprados.push(precio)
 
-    //             modalValidate[0].textContent = `Usted compró ${cantInput} unidades de ${productos[i]} por el precio de: $${precio}, muchas gracias!`;
+                modalValidate[0].textContent = `Usted compró ${cantInput} unidades de ${productos[i]} por el precio de: $${precio}, muchas gracias!`;
 
-    //             let nuevoStock = cantidadProductos[i] - cantInput;
-    //             stock.textContent = `El stock es de ${nuevoStock} unidades`;
+                let nuevoStock = cantidadProductos[i] - cantInput;
+                stock.textContent = `El stock es de ${nuevoStock} unidades`;
 
-    //             actualizarPrecioFinal()
+                actualizarPrecioFinal()
 
-    //             setTimeout(() => {
-    //                 modalInput.value = null
-    //                 modalValidate[0].textContent = ""
-    //                 modal.classList.remove('modal--show');
-    //             }, 4000);
+                setTimeout(() => {
+                    modalInput.value = null
+                    modalValidate[0].textContent = ""
+                    modal.classList.remove('modal--show');
+                }, 4000);
 
 
-    //         } else {
+            } else {
 
-    //             modalValidate[0].textContent = `Por favor ingrese un número valido, que se encuentre entre 0 y ${cantidadProductos[i]}`
-    //         }
+                modalValidate[0].textContent = `Por favor ingrese un número valido, que se encuentre entre 0 y ${cantidadProductos[i]}`
+            }
 
+        }
+
+
+    });
+
+    closeModal.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalInput.value = null
+        modalValidate[0].textContent = ""
+        modal.classList.remove('modal--show');
+    });
+
+}
+
+    // let realizarCompra = document.getElementById(`compra${[i]}`)
+
+    // realizarCompra.addEventListener("click", (e) => {
+    //     e.preventDefault()
+
+    //     let cantInput = Number(input.value)
+    
+    //     if (cantInput > 0 && cantInput <= cantidadProductos[i]) {
+    
+    //         let precio = cantInput * precioProductos[i];
+    
+    //         productosComprados.push(precio)
+    
+    //         alert(`Usted compró ${cantInput} unidades de ${productos[i]} por el precio de: $${precio}, muchas gracias!`);
+    
+    //         let nuevoStock = cantidadProductos[i] - cantInput;
+    //         stock.textContent = `El stock es de ${nuevoStock} unidades`;
+
+    //         input.value = "";
+    //         console.log(productosComprados);
+    //         actualizarPrecioFinal();
+    //     }else{
+    //         alert(`Por favor ingrese un número valido, que se encuentre entre 0 y ${cantidadProductos[i]}`)
+    //         input.value = "";
     //     }
 
-
-    // });
-
-    // closeModal.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     modalInput.value = null
-    //     modalValidate[0].textContent = ""
-    //     modal.classList.remove('modal--show');
-    // });
-
+        
+    // })
+    
+//}
 
 
 
