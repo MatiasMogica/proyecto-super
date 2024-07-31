@@ -8,7 +8,8 @@
     <title>Contacto</title>
 </head>
 
-<body>
+<body background="../imagenes/abstract-bokeh-light-background-illustration-vector.jpg">
+
     <header>
         <nav>
             <ul>
@@ -25,11 +26,15 @@
         </nav>
     </header>
 
+<img src="../imagenes/logo.png" alt="Logo" class="img-logo"></a>
+
+
     <form>
         <div class="contenedor">
             <div class="nombre">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Escribi tu nombre" class="nombre__input">
+                <input type="text" id="nombre" placeholder="Escribi tu nombre" class="nombre__input" >
+            
             </div>
             <div class="apellido">
                 <label for="apellido">Apellido:</label>
@@ -37,16 +42,16 @@
             </div>
             <div class="email">
                 <label for="email">Email:</label>
-                <input type="text" id="email" placeholder="Escribi tu email" class="email__input">
+                <input type="email" id="email" aria-required="Debe completar el campo" placeholder="Escribi tu email" class="email__input">
             </div>
             <div class="telefono">
                 <label for="telefono">Teléfono:</label>
-                <input type="text" id="telefono" placeholder="Escribi tu telefono" class="telefono__input">
+                <input type="tel" id="telefono" placeholder="Escribi tu telefono" class="telefono__input">
             </div>
             <div class="comentario">
                 <label for="comentario">Dejanos tu comentario:</label>
                 <textarea id="comentario" name="comentario_text_area"
-                    placeholder="Compartí acá tu comentario (máx. 512 caracteres)" maxlength="512"
+                    placeholder="Compartí acá tu comentario (máx. 512 caracteres)" minlength="20" maxlength="512"
                     class="comentario__input"></textarea>
             </div>
             <div class="btn__contenedor">
