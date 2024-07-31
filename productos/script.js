@@ -1,6 +1,6 @@
 "use strict";
 
-let productos = ["Azucar Ledesma", "Cafe Dolca", "CocaCola", "Fernet Branca", "Fideos Matarazzo", "Leche laSerenisima", "Mermelada LaCampagnola", "Queso untable", "Yerba playadito", "Yogur laSerenisima"];
+let productos = ["Azucar Ledesma", "Cafe Dolca", "CocaCola", "Fernet Branca", "Fideos Matarazzo", "Leche laSerenisima", "Mermelada", "Queso untable", "Yerba playadito", "Yogurt"];
 let precioProductos = [2000, 5000, 3500, 10000, 1500, 1300, 1300, 3000, 3000, 1000];
 let cantidadProductos = [80, 23, 55, 16, 14, 62, 43, 38, 19, 4];
 let imagenProducto = ["../imagenes/azucar.jpeg", "../imagenes/cafe.jpeg", "../imagenes/cocacola.jpeg", "../imagenes/fernet.jpeg", "../imagenes/fideos.jpeg", "../imagenes/leche.jpeg", "../imagenes/mermelada.jpeg", "../imagenes/quesoUntable.jpeg", "../imagenes/yerba.jpeg", "../imagenes/yogur.jpeg"]
@@ -8,6 +8,7 @@ let productosComprados = []
 
 let contenedor = document.getElementById("contenedor_producto");
 let precioFinal = document.getElementById("precio_final");
+let divPrecioFinal = document.getElementById("cont__p__final")
 
 //-------!!!!!!!!!!!FALTA VALIDAR STOCK!!!!!!!!!!!!!!!!---------
 //                  AGREGAR SWEET ALERTS
@@ -24,7 +25,7 @@ function sumaFinal(productosComprados) {
 
 function actualizarPrecioFinal() {
     if (productosComprados.length > 0) {
-        precioFinal.textContent = `La sumatoria total de los productos comprados es de: $${sumaFinal(productosComprados)}`;
+        precioFinal.textContent = `El total de su compra es de: $${sumaFinal(productosComprados)}, gracias por elegirnos!`;
     } else {
         precioFinal.textContent = "";
     }
@@ -53,7 +54,7 @@ for (let i = 0; i < productos.length; i++) {
 
     let botonComprar = document.createElement("button")
     botonComprar.textContent = "Realizar compra"
-    botonComprar.className = "hero__cta"
+    botonComprar.className = "card__comprar"
     botonComprar.id = `compra${[i]}`
 
 //console.log(typeof(input.value))
@@ -107,7 +108,7 @@ for (let i = 0; i < productos.length; i++) {
                     modalInput.value = null
                     modalValidate[0].textContent = ""
                     modal.classList.remove('modal--show');
-                }, 4000);
+                }, 3000);
 
 
             } else {

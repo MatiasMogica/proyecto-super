@@ -2,15 +2,17 @@
 .contenedor{
     display: flex;
     flex-wrap: wrap;
-    width: 90vw;  
-    height: 150vh; 
-    border: 1px solid black; 
+    width: 100%;  
+    height: 100%; 
     justify-content: center;
     align-items: center;
-    margin-left: 4%;
+    font-family: 'Bebas Neue', Arial, sans-serif;
 }
 
 .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
@@ -129,4 +131,30 @@
 .modal__comprar:hover{
     color: #4ceb47;
     background-color: #fff;
+}
+
+.contenedor__txt{
+    display: flex;
+    width: 100%;
+    height: 4em;
+    justify-content: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    color: white;
+    background-color: rgba(0, 0, 255, 0.89);
+    align-items: center;
+}
+
+.card__comprar{
+    text-decoration: none;
+    color: #fff;
+    background-color: #4ceb47;
+    padding: 0.8em 1em;
+    border: 1px solid ;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+    cursor: pointer;
 }
