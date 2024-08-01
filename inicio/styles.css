@@ -80,18 +80,17 @@ nav ul {
 .item4 {
     grid-area: footer;
     background-color: rgba(0, 0, 255, 0.89);
+    color: #fff;
     line-height: 0;
     border-radius: 5px;
     padding-left: 10px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
 
 }
 
 .img-footer {
     width: 110px;
     float: inline-end;
-    border-radius: 5px;
-    padding-right: 15px;
-    padding-bottom: 10px;
-    font-weight: 900;
-    font-family: 'Bebas Neue', Arial, sans-serif;
+    margin-right: 10px;
+    border-radius: 5px;  
 }
