@@ -1,7 +1,7 @@
 .contenedor-grid {
     display: grid;
     grid-template-columns: 700px 1fr 1fr 1fr;
-    grid-template-rows: 90px 600px 1fr ;
+    grid-template-rows: 70px 600px 1fr ;
     /* grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr); */
     grid-template-areas: "header header header header"
@@ -12,20 +12,23 @@
 
 .item1 {
     grid-area: header;
-    background-color:rgb(255, 255, 255);
+    background-color:rgb(177, 177, 177);
     display: flex;
     text-align: left;
-    border: black 2px solid;
+    border-radius: 5px;
+    
 }
 .img-logo {
     width: 250px;
     justify-items: start;
+    border-radius: 5px;
 }
 
 .img-logo:hover {
     transform:scale(1.3);
 
 }
+
 .img-header{
 	width: 30px;
 	height: 30px;
@@ -44,23 +47,30 @@ nav ul {
 
 .item2 {
     grid-area: aside;
-    background-color: blueviolet;
+    background-color: rgb(191, 188, 194);
     text-align: justify;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
 
 }
 
 .item3 {
     grid-area: main;
-    background-color: rgb(187, 111, 202);
+    background-color: rgb(228, 18, 18);
     display: flexbox;
     justify-content: center;
-    
+    border-radius: 5px;
+    padding: 5px 12px 8px 8px;
+
 }
 
 .img-main{
 	width: 300px;
 	height: 145px;
 	object-fit: cover;
+    border-radius: 5px;
 }    
 
 .img-main:hover {
@@ -69,13 +79,19 @@ nav ul {
 }
 .item4 {
     grid-area: footer;
-    background-color: rgb(187, 105, 224);
-    border: black 2px solid;
+    background-color: rgba(0, 0, 255, 0.89);
     line-height: 0;
+    border-radius: 5px;
+    padding-left: 10px;
 
 }
 
 .img-footer {
     width: 110px;
     float: inline-end;
+    border-radius: 5px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    font-weight: 900;
+    font-family: 'Bebas Neue', Arial, sans-serif;
 }
