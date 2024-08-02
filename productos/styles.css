@@ -115,6 +115,7 @@ nav ul {
     grid-auto-columns: 100%;
     transform: var(--transform);
     transition:var(--transition);
+    font-family: 'Bebas Neue', Arial, sans-serif;
 }
 
 .modal__title{
