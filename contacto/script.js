@@ -21,17 +21,18 @@ form.addEventListener("submit", (e) => {
     textoTelefono.textContent = "";
     textoComentario.textContent = "";
 
+    let nombreValidate = /^[^\d]*$/;
     let emailValidate = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let telefonoValidate = /^\d{10}$/;
 
     let valid = true;
 
-    if (nombre.value === "") {
+    if (!nombreValidate.test(nombre.value)) {
         //alert("El nombre es obligatorio");
         textoNombre.textContent = "El nombre es obligatorio";
         valid = false;
     } 
-    if (apellido.value === "") {
+    if (!nombreValidate.test(apellido.value)) {
         //alert("El apellido es obligatorio");
         textoApellido.textContent = "El apellido es obligatorio";
         console.log(textoApellido.textContent)
