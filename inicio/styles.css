@@ -1,12 +1,13 @@
 .contenedor-grid {
     display: grid;
     grid-template-columns: 700px 1fr 1fr 1fr;
-    grid-template-rows: 70px 600px 1fr ;
+    grid-template-rows: 70px 400px 150px 1fr ;
     /* grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr); */
     grid-template-areas: "header header header header"
-                         "aside main main main"
-                         "footer footer footer footer";  /*4 columnas y 3 filas*/
+                         "aside aside aside aside"
+                         "main main main main"
+                         "footer footer footer footer";  /*4 columnas y 4 filas*/
     gap: 8px ;
 }
 
@@ -67,10 +68,19 @@ nav ul {
 }
 
 .img-main{
-	width: 300px;
-	height: 145px;
+	/*width: 50px;*/
+	height: 140px;
 	object-fit: cover;
     border-radius: 5px;
+    scroll-snap-align: center
+}    
+
+.slider-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
 }    
 
 .img-main:hover {
