@@ -1,7 +1,7 @@
 .contenedor-grid {
     display: grid;
     grid-template-columns: 700px 1fr 1fr 1fr;
-    grid-template-rows: 70px 400px 150px 1fr ;
+    grid-template-rows: 70px 400px 200px 1fr ;
     /* grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr); */
     grid-template-areas: "header header header header"
@@ -60,33 +60,80 @@ nav ul {
 .item3 {
     grid-area: main;
     background-color: rgb(228, 18, 18);
-    display: flexbox;
-    justify-content: center;
+    display: flex;
+    /*justify-content: center;*/
     border-radius: 5px;
     padding: 5px 12px 8px 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
 
 }
+.slider-container {
+    display: flex;
+    /*width: 100%;
+    height: 100vh;*/
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+    overflow-y: hidden; /* Oculta el desplazamiento vertical */
+    /*border: 1px solid red; /* Para ver el contenedor */
+}
 
+.slider-container::-webkit-scrollbar {
+    width: 7px;
+    height: 7px; /*Añade altura para la barra de desplazamiento horizontal*/
+}    
+
+.slider-container::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 5px;
+} 
 .img-main{
 	/*width: 50px;*/
-	height: 140px;
-	object-fit: cover;
+	height: 170px;
+	/*object-fit: cover;*/
     border-radius: 5px;
     scroll-snap-align: center
 }    
 
-.slider-container {
+.img-main:hover {
+    transform:scale(1.20);
+
+}
+
+/*.slider-container {
     display: flex;
     width: 100%;
     height: 100vh;
-    overflow-x: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
-}    
+    
+}    */
 
-.img-main:hover {
-    transform:scale(1.10);
-
+/*.item3 {
+    display: flex;
+    width: max-content; /* Asegura que el contenedor sea lo suficientemente ancho 
+    padding: 5px 12px 8px 8px;
+    scroll-snap-type: x mandatory;
 }
+
+.img-main {
+    height: 170px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px; /* Espacio entre imágenes 
+    scroll-snap-align: center;
+}
+
+.item3::-webkit-scrollbar {
+    height: 8px; /* Altura para la barra de desplazamiento horizontal 
+}
+
+.item3::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0); /* Color del thumb 
+    border-radius: 10px;
+}*/
+
 .item4 {
     grid-area: footer;
     background-color: rgba(0, 0, 255, 0.89);
