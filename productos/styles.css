@@ -192,3 +192,10 @@ nav ul {
     transition: background-color .3s;
     cursor: pointer;
 }
+
+.compra {
+    text-decoration: none;
+    align-items: center;
+    padding-left: 100px;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
