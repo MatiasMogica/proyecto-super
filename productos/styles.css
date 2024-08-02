@@ -72,6 +72,12 @@ nav ul {
     filter: brightness(110%);
 }
 
+.precio__producto {
+    text-decoration: line-through;
+    color: red;
+    padding-right: 5px;
+}
+
 .modal{
     position:fixed;
     top: 0;

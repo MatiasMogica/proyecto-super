@@ -43,6 +43,9 @@ for (let i = 0; i < productos.length; i++) {
     let precioProducto = document.createElement("p")
     precioProducto.textContent = `$${precioProductos[i]}`
 
+    let productoDescuento = document.createElement("p");
+    productoDescuento.textContent = ""
+
     let stock = document.createElement("p")
     stock.textContent = `El stock es de ${cantidadProductos[i]} unidades`;
 
@@ -59,11 +62,22 @@ for (let i = 0; i < productos.length; i++) {
     card.appendChild(tituloProducto);
     card.appendChild(imagen)
     card.appendChild(precioProducto);
+    card.appendChild(productoDescuento);
     card.appendChild(stock);
     //card.appendChild(input);
     card.appendChild(botonComprar);
 
     contenedor.appendChild(card)
+
+
+    if(productos[i] === "CocaCola" || productos[i] === "Fernet Branca"){
+        console.log("descuento", precioProductos[i])
+        precioProducto.className = "precio__producto";
+        precioProducto.textContent = `$${precioProductos[i]}`;
+        productoDescuento.textContent = `30% off: $${precioProductos[i]-(30/100*precioProductos[i])}`
+        precioProductos[i] = precioProductos[i]-(30/100*precioProductos[i]);
+        console.log(precioProductos)
+    };
 
     let openModal = document.querySelector(`#compra${[i]}`)
     let modal = document.querySelector('.modal');
