@@ -103,8 +103,11 @@ for (let i = 0; i < productos.length; i++) {
     
             let cantInput = Number(modalInput.value)
 
-            if (cantInput > 0 && cantInput <= cantidadProductos[i]) {
+            if (cantInput < 0 && cantInput >= cantidadProductos[i] || modalInput.value.includes(".")) {
       
+                modalValidate[0].textContent = `Por favor ingrese un número valido, que se encuentre entre 0 y ${cantidadProductos[i]}, y sea entero`
+                
+            } else {
                 let precio = cantInput * precioProductos[i];
 
                 productosComprados.push(precio)
@@ -122,10 +125,7 @@ for (let i = 0; i < productos.length; i++) {
                     modal.classList.remove('modal--show');
                 }, 3000);
 
-
-            } else {
-
-                modalValidate[0].textContent = `Por favor ingrese un número valido, que se encuentre entre 0 y ${cantidadProductos[i]}`
+                
             }
 
         }
