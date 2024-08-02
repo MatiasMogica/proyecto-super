@@ -1,6 +1,6 @@
 "use strict";
 
-let productos = ["Azucar Ledesma", "Cafe Dolca", "CocaCola", "Fernet Branca", "Fideos Matarazzo", "Leche laSerenisima", "Mermelada", "Queso untable", "Yerba playadito", "Yogur"];
+let productos = ["Azucar Ledesma", "Cafe Dolca", "CocaCola", "Fernet Branca", "Fideos Matarazzo", "Leche La Serenisima", "Mermelada", "Queso untable", "Yerba playadito", "Yogur"];
 let precioProductos = [2000, 5000, 3500, 10000, 1500, 1300, 1300, 3000, 3000, 1000];
 let cantidadProductos = [80, 23, 55, 16, 14, 62, 43, 38, 19, 49];
 let imagenProducto = ["../imagenes/azucar.jpeg", "../imagenes/cafe.jpeg", "../imagenes/cocacola.jpeg", "../imagenes/fernet.jpeg", "../imagenes/fideos.jpeg", "../imagenes/leche.jpeg", "../imagenes/mermelada.jpeg", "../imagenes/quesoUntable.jpeg", "../imagenes/yerba.jpeg", "../imagenes/yogur.jpeg"]
