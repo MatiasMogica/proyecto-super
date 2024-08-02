@@ -187,11 +187,9 @@ nav ul {
     /*height: 4em;*/
     justify-content: center;
     border-radius: 5px;
-    margin: 12px;
+    margin-top: 10px;
     font-family: 'Bebas Neue', Arial, sans-serif;
     color: white;
     background-color: rgba(0, 0, 255, 0.89);
     align-items: center;
-    tab-size: ;
-
     }
