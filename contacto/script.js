@@ -27,12 +27,12 @@ form.addEventListener("submit", (e) => {
 
     let valid = true;
 
-    if (!nombreValidate.test(nombre.value)) {
+    if (!nombreValidate.test(nombre.value) || nombre.value == "") {
         //alert("El nombre es obligatorio");
         textoNombre.textContent = "El nombre es obligatorio";
         valid = false;
     } 
-    if (!nombreValidate.test(apellido.value)) {
+    if (!nombreValidate.test(apellido.value) || apellido.value == "") {
         //alert("El apellido es obligatorio");
         textoApellido.textContent = "El apellido es obligatorio";
         console.log(textoApellido.textContent)
